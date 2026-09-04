@@ -1,46 +1,47 @@
-import { useState } from "react";
-import ServerInfo from "../src/ServerInfo";
-/*import ProjectsCrud from "../src/ProjectsCrud";
-import TaskFlowService from "../src/TaskFlowService"; */
-import "./App.css";
+import { useEffect, useState } from "react";
+import Stack from "@mui/material/Stack";
 
-type View = "info" | "projects" | "tasks";
+type Info = {
+  version: string;
+  app: string;
+};
 
 function App() {
-  const [view, setView] = useState<View>("info");
+
+  const [info, setInfo] = useState<Info | null>(null);
+
+  useEffect(() => {
+
+    async function obtenerInfo() {
+
+      const response = await fetch(
+        "https://d3ujwk09smrk9z.cloudfront.net/info"
+      );
+
+      const data = await response.json();
+
+      console.log(data);
+
+      setInfo(data);
+    }
+
+    obtenerInfo();
+
+  }, []);
 
   return (
-    <div>
-      <nav className="app-nav">
-        <button
-          className={view === "info" ? "active" : ""}
-          onClick={() => setView("info")}
-        >
-          Entregable 1: Server Info
-        </button>
-        <button
-          className={view === "projects" ? "active" : ""}
-          onClick={() => setView("projects")}
-        >
-          Fase 3: Proyectos CRUD
-        </button>
-        <button
-          className={view === "tasks" ? "active" : ""}
-          onClick={() => setView("tasks")}
-        >
-          Entregable 2: Tasks (JWT)
-        </button>
-      </nav>
+    <Stack spacing={2} sx={{ padding: 3 }}>
 
-      {view === "info" && <ServerInfo />}
+      <h1>TaskFlow API</h1>
 
+      {info && (
+        <div>
+          <p>Aplicación: {info.app}</p>
+          <p>Versión: {info.version}</p>
+        </div>
+      )}
 
-    {/* {view === "projects" && <ProjectsCrud />}
-      {view === "tasks" && <TaskFlowService />} * */} 
-   
-   
-   
-    </div>
+    </Stack>
   );
 }
 
