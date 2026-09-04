@@ -6,7 +6,7 @@ interface TaskFlowInfo {
   version: string;
 }
 
-const API_BASE = "http://52.87.135.237:8080";
+const API_BASE = "https://corsproxy.io/?url=http://52.87.135.237:8080"; //importante para correr en el despliegue
 
 function ServerInfo() {
   const [info, setInfo] = useState<TaskFlowInfo | null>(null);
