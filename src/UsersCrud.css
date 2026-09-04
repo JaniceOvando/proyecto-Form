@@ -1,0 +1,99 @@
+.uc-container {
+  padding: 24px;
+  font-family: system-ui, sans-serif;
+}
+
+.uc-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.uc-header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.uc-new-btn {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.uc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.uc-card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.uc-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #2563eb;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.uc-name {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+}
+
+.uc-username {
+  color: #6b7280;
+  font-size: 14px;
+  margin: 0 0 4px 0;
+}
+
+.uc-email {
+  color: #2563eb;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.uc-email:hover {
+  text-decoration: underline;
+}
+
+.uc-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.uc-edit,
+.uc-delete {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: black;
+}
+
+.uc-error,
+.uc-loading {
+  padding: 24px;
+}
